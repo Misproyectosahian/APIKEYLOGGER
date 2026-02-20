@@ -108,4 +108,7 @@ if __name__ == '__main__':
     print("\n[*] API escuchando en puerto 5000...")
     print("[*] Esperando conexiones...\n")
     
-    app.run(host='localhost', port=5000, debug=False)
+    # En Render, usar 0.0.0.0 para escuchar en todas las interfaces
+    import os
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
